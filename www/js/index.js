@@ -210,6 +210,8 @@ game.getLetter = function(){
 		setTimeout(function(){f.removeClass("trigger", "pull_trigger");/* console.log(f.elById("d").offsetWidth+" word length") */},t);
 	}
 }
-
+/*
 document.addEventListener("deviceready", game.init, true);
 window.addEventListener("load", game.init, false);
+*/
+game.init();
