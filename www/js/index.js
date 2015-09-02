@@ -211,7 +211,9 @@ game.getLetter = function(){
 	}
 }
 /*
-document.addEventListener("deviceready", game.init, true);
+document.addEventListener("deviceready", game.init, false);
 window.addEventListener("load", game.init, false);
 */
 game.init();
+
+document.addEventListener("deviceready", function(){alert("device ready");}, false);
