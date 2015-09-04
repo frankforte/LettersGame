@@ -56,15 +56,14 @@ game.chooseLevel = function(level){
 
 game.initialized = false
 game.init = function(){
+	console.log("test1");
 	if(game.initialized){return;}
 	game.initialized = true;
-	/* Initialize home page with level selection */
-	var initElement =  document.getElementById("init");
-	var optElement = document.getElementById("options");
-
-	initElement.setAttribute('style', 'display:none;');
-	optElement.setAttribute('style', 'display:block;');
-		
+	/* Remove loading message */
+	console.log("test2");
+	game.getLetter("Letters Game");
+	game.pages.init.setAttribute('style', 'display:none;');
+	console.log("test3");
 	
 	for(var i = 0; i < game.opts.length; i++){
 //		$("#"+game.opts[i]).on("click",function(){
@@ -116,27 +115,39 @@ game.medium = {"list":["add","after","again","any","apple","arm","banana","bark"
 game.hard = {"list":["baseball","brother","can't","clover","cloud","crayon","club","coat","come","cookie","could","crow","cube","cupcake","deal","dew","didn't","dime","dine","dirt","doll","don't","door","draw","dream","dress","drink","dull","each","east","easy","eight","eleven","every","father","field","fine","first","flew","flower","friend","globe","going","grape","grass","grew","heavy","I'm","it's","know","marker","maybe","milk","morning","mother","myself","much","never","notebook","other","over","paper","pencil","pretty","rabbit","school","seven","sew","shirt","sister","smell","stray","string","summer","start","swing","table","thank","thrift","twelve","twist","under","very","water","were","where","won't","yellow","zebra","zero"]};
 game.pro = {"list":["always","animal","around","because","before","believe","between","bread","bright","busy","cannot","caught","charge","clapped","clean","chicken","children","doctor","does","goes","everyone","everywhere","flight","inside","juice","kitchen","laughter","lunchroom","nobody","once","orange","outside","piece","purple","raise","round","shoes","today","used","weak","week","whale","which","while","wool","yesterday"]};
 
+game.h1 = document.getElementById("h1");
 game.el = document.getElementById("d");
-	
+
 game.getNum = function(min,max){
 	if(min === max){return min;}
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-game.getLetter = function(){
-	
-	// if($("#trigger").hasClass("pull_trigger")){
+game.getLetter = function(name){
+
+	if(typeof(name) != "string"){
+	var name = false
+	}
+
 	if(f.hasClass("trigger","pull_trigger")){
 		return;
 	}
+		console.log("testname2");
 
 	// spin and deactivate trigger
 	f.addClass("trigger","pull_trigger");
 
-	game.el.innerHTML = '';
-	var x = game.getNum(0,game[game.level].list.length-1);
-	var a = game[game.level].list[x];
+	var targ = (name ? "h1" : "el" );
+	game[targ].innerHTML = '';
+	if(!name){
+		var x = game.getNum(0,game[game.level].list.length-1);
+		var a = game[game.level].list[x];
+	} else {
+		a = name
+	}
+console.log(a)
 	
+console.log(game[targ])
 	if(a.length == 1){
 		var y = game.getNum(0,game.colors.length-1);
 		var z = game.getNum(6,15); // fint size in em
@@ -202,7 +213,7 @@ game.getLetter = function(){
 			if(j == 0){ x = x.toUpperCase(); }
 			j++;
 
-			game.el.innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'em;">'+x+'</span>';;
+			game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'em;">'+x+'</span>';;
 			},i*100);
 		}
 		//var t = i*100;
@@ -210,10 +221,9 @@ game.getLetter = function(){
 		setTimeout(function(){f.removeClass("trigger", "pull_trigger");/* console.log(f.elById("d").offsetWidth+" word length") */},t);
 	}
 }
-/*
-document.addEventListener("deviceready", game.init, false);
-window.addEventListener("load", game.init, false);
-*/
-game.init();
 
-document.addEventListener("deviceready", function(){alert("device ready");}, false);
+function init(){
+	document.addEventListener("deviceready", game.init, false);
+	game.init();
+}
+window.onload = init;

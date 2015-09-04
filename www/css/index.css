@@ -29,7 +29,7 @@ body{
 	right:0px;
 	bottom:0px;
 	left:0px;
-	position:fixed;
+	position:absolute;
 	text-align:center;
 }
 
@@ -39,7 +39,7 @@ body{
 }
 */
 h1 {
-    font-size:13em;
+    font-size:1em;
     font-weight:normal;
     margin:0px;
     overflow:visible;
@@ -56,7 +56,7 @@ h1 {
 .c5{color:#CC66FF;}
 .c6{color:#990000;}
 #gameboard{padding-top:5.5em;}
-#gameboard,#opions{
+#gameboard{
 	display:none;
 } /* 4499FF */
 h1, #d{
@@ -101,7 +101,7 @@ h1, #d{
 	transform: rotate(360deg);
 }
 
-#end{position:absolute;top:0.5em;right:0.5em;}
+#end{position:fixed;top:0.5em;right:0.5em;}
 .option{font-size:2em;text-align:left;margin:2em auto;width:29em;}
 .option .description{padding-left:0.5em;}
 .checkbox{
@@ -132,12 +132,12 @@ margin-right:0.7em;
 
 @keyframes fade {
     from { opacity: 1.0; }
-    50% { opacity: 0.4; }
+    50% { opacity: 0.2; }
     to { opacity: 1.0; }
 }
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
-    50% { opacity: 0.4; }
+    50% { opacity: 0.2; }
     to { opacity: 1.0; }
 }
 .blink {
