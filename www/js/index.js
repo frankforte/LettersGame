@@ -198,15 +198,25 @@ game.getLetter = function(name){
 		w2 = maxh;
 	}
 
-	for(var i = 0; i < a.length; i++){
-		setTimeout(function(){
-
-		y = game.getNum(0,4); /* color */
-		z = game.getNum(w1,w2); /* size */
+	/* size */
+		z = game.getNum(w1,w2);
 		if(devicePixelRatio > 1){
 			z = z*devicePixelRatio*3;
 		}
 		z = Math.round(z,0);
+	game[targ].style="font-size: "+z+"px;";
+	
+	for(var i = 0; i < a.length; i++){
+		setTimeout(function(){
+
+		y = game.getNum(0,4); /* color */
+		/*
+		z = game.getNum(w1,w2);
+		if(devicePixelRatio > 1){
+			z = z*devicePixelRatio*3;
+		}
+		z = Math.round(z,0);
+		*/
 		x = a.charAt(j); /* letter */
 
 		if(j == 0){ x = x.toUpperCase(); }
