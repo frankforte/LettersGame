@@ -115,6 +115,8 @@ game.getNum = function(min,max){
 
 game.getLetter = function(name){
 
+	var devicePixelRatio = window.devicePixelRatio || 1;
+
 	if(typeof(name) != "string"){
 	var name = false
 	}
@@ -138,8 +140,9 @@ game.getLetter = function(name){
 	if(a.length == 1){
 		var y = game.getNum(0,game.colors.length-1);
 		var z = game.getNum(6,15); // fint size in em
+		z = z*devicePixelRatio;
 
-		game.el.innerHTML += '<span class="letter" style="color:'+game.colors[y]+';font-size:'+z+'em;">'+a+'</span>';
+		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+a+'</span>';
 
 		// unspin and activate trigger again
 		// long enough time that kids actually look at letter!
@@ -168,48 +171,42 @@ game.getLetter = function(name){
 		var em = el.offsetWidth;
 		el.style.display="none";
 
-alert("starting width:"+w2);
-alert("one character"+em);
 
 		// var w = f.elById("home");
 		// w = w.offsetWidth;
 		var w = effectiveDeviceWidth();
-alert(w);
 
 		// not wide enough?
-		if(w2*a.length < w){
-			var ratio = w/(w2*a.length);
+		var lenw = w2*a.length/devicePixelRatio;
+		if(lenw < w){
+			var ratio = w/lenw;
 			w1 = w1*ratio;
 			w2 = w2*ratio;
 		}
 		// too wide?
-		if(w2*a.length > w){
-			var ratio = w/(w2*a.length);
+		if(lenw > w){
+			var ratio = w/lenw;
 			w1 = w1*ratio;
 			w2 = w2*ratio;
-alert("too wide, updated to "+w2);
 		}
 		// too tall?
-		var maxh = 300;
+		var maxh = 300*lenw;
 		if(w2 > maxh){
 			var ratio = maxh/w2;
 			w1 = w1*ratio;
 			w2 = maxh;
-alert("too tall, updated to "+w2);
 		}
 
-var devicePixelRatio = window.devicePixelRatio || 1;
-
-alert("ratio "+devicePixelRatio);
 		for(var i = 0; i < a.length; i++){
 			setTimeout(function(){
 			y = game.getNum(0,4);
-			z = game.getNum(w1,w2) * devicePixelRatio;
+			z = game.getNum(w1,w2);
+			z = z*devicePixelRatio;
 			x = a.charAt(j);
 			if(j == 0){ x = x.toUpperCase(); }
 			j++;
 
-			game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+x+'</span>';;
+			game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+x+'</span>';
 			},i*100);
 		}
 		//var t = i*100;
