@@ -212,7 +212,7 @@ game.getLetter = function(name){
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
-		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px !imporant;">'+x+'</span>';
+		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px">'+x+'</span>';
 		},i*100);
 	}
 	
