@@ -198,10 +198,13 @@ alert("too wide, updated to "+w2);
 alert("too tall, updated to "+w2);
 		}
 
+var devicePixelRatio = window.devicePixelRatio || 1;
+
+alert("ratio "+devicePixelRatio);
 		for(var i = 0; i < a.length; i++){
 			setTimeout(function(){
 			y = game.getNum(0,4);
-			z = game.getNum(w1,w2);
+			z = game.getNum(w1,w2) * devicePixelRatio;
 			x = a.charAt(j);
 			if(j == 0){ x = x.toUpperCase(); }
 			j++;
