@@ -8,7 +8,6 @@ body, .page {
 }
 body{
 	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-	font-size:12px;
 	height:100%;
 	margin:0px;
 	padding:0px;
@@ -46,9 +45,11 @@ h1 {
     padding:0px;
     text-align:center;
 }
+/*
 @media screen and (min-aspect-ratio: 1/1) and (max-width:400px) {
 	h1{font-size:9em;}
 }
+*/
 .c1{color:#CC0000;}
 .c2{color:#009900;}
 .c3{color:#6666FF;}
