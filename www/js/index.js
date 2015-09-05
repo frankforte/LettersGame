@@ -172,12 +172,13 @@ game.getLetter = function(name){
 		el.style.display="none";
 
 
-		// var w = f.elById("home");
-		// w = w.offsetWidth;
-		var w = effectiveDeviceWidth();
+		 var w = f.elById("home");
+		 w = w.offsetWidth;
+		alert(w);
+// var w = effectiveDeviceWidth();
 
 		// not wide enough?
-		var lenw = w2*a.length/devicePixelRatio;
+		var lenw = w2*a.length;
 		if(lenw < w){
 			var ratio = w/lenw;
 			w1 = w1*ratio;
@@ -212,9 +213,8 @@ game.getLetter = function(name){
 		//var t = i*100;
 		var t = 5000;
 		setTimeout(function(){f.removeClass("trigger", "pull_trigger");/* console.log(f.elById("d").offsetWidth+" word length") */},t);
-
-alert(game[targ].offsetWidth+" target width");
-alert(w+" game width");
+console.log(game[targ].offsetWidth+" target width");
+console.log(w+" game width");
 
 	}
 }
