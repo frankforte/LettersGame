@@ -24,6 +24,7 @@ body{
 }
 
 /* Portrait */
+#home{width:100%;padding:0px;margin:0px;}
 .page{
 	width:100%;
 	height:100%;
