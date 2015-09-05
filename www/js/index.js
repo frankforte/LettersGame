@@ -206,7 +206,9 @@ alert("new em size: "+w2+" px")
 
 		y = game.getNum(0,4); /* color */
 		z = game.getNum(w1,w2); /* size */
-		z = z*devicePixelRatio;
+		if(devicePixelRatio > 1){
+			z = z*devicePixelRatio*3;
+		}
 		x = a.charAt(j); /* letter */
 
 		if(j == 0){ x = x.toUpperCase(); }
