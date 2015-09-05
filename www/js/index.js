@@ -174,7 +174,6 @@ game.getLetter = function(name){
 			w2 = 11;
 		}
 	*/
-alert("em is "+em+" px wide");
 
 	// scale word to fit window
 	var lenw = w2*a.length;
@@ -184,8 +183,6 @@ alert("em is "+em+" px wide");
 		var ratio = w/lenw;
 		w1 = w1*ratio;
 		w2 = w2*ratio;
-alert(lenw+" is too wide")
-alert("new em size: "+w2+" px")
 	}
 	// not wide enough?
 	if(lenw < w){
@@ -221,8 +218,6 @@ alert("new em size: "+w2+" px")
 	var t = (name ? 0 : i*1000);
 	setTimeout(function(){
 		f.removeClass("trigger", "pull_trigger");
-		alert(targ+" "+game[targ].offsetWidth+" target width");
-		alert(w+" game width");
 	},t);
 }
 
