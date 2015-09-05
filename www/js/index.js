@@ -47,26 +47,19 @@ game.chooseLevel = function(level){
 	game.level = level;
 	for(var i = 0; i < game.opts.length; i++){
 		f.removeClass(game.opts[i],"checked");
-		// $("#"+game.opts[i]).removeClass("checked");
 	}
 	f.addClass(level,"checked");
-
-	//$("#"+level).addClass("checked");
 }
 
 game.initialized = false
 game.init = function(){
-	console.log("test1");
 	if(game.initialized){return;}
 	game.initialized = true;
 	/* Remove loading message */
-	console.log("test2");
 	game.getLetter("Letters Game");
-	game.pages.init.setAttribute('style', 'display:none;');
-	console.log("test3");
+	game.pages.init.style="display:none;";
 	
 	for(var i = 0; i < game.opts.length; i++){
-//		$("#"+game.opts[i]).on("click",function(){
 		var el = f.elById(game.opts[i]);
 		f.addEvent(el,"click",function(){
 			game.chooseLevel(this.id);
@@ -74,16 +67,13 @@ game.init = function(){
 	}
 
 	/* Initialize start button */
-	// $("#start").on("click",game.start);
 	f.addEvent(f.elById("start"),"click",game.start);
 	
 	/* Initialize End button */
-	//$("#end").on("click",game.end);
 	f.addEvent(f.elById("end"),"click",game.end);
 
 
 	/* Initialize Trigger */
-	// $("#trigger").on("click",game.getLetter);
 	f.addEvent(f.elById("trigger"),"click",game.getLetter);
 
 }
@@ -132,7 +122,6 @@ game.getLetter = function(name){
 	if(f.hasClass("trigger","pull_trigger")){
 		return;
 	}
-		console.log("testname2");
 
 	// spin and deactivate trigger
 	f.addClass("trigger","pull_trigger");
@@ -145,9 +134,7 @@ game.getLetter = function(name){
 	} else {
 		a = name
 	}
-console.log(a)
-	
-console.log(game[targ])
+
 	if(a.length == 1){
 		var y = game.getNum(0,game.colors.length-1);
 		var z = game.getNum(6,15); // fint size in em
@@ -176,15 +163,13 @@ console.log(game[targ])
 		*/
 
 		// scale sizes to fit window
-		// var em = f.elById("#em").width(); // in px
 		var el = f.elById("em");
 		el.style.display="inline-block";
 		var em = el.offsetWidth;
 		el.style.display="none";
 
-		// var w = $(window).width();
-		var w = window.offsetWidth;
-
+		var w = f.elById("home");
+		w = w.offsetWidth;
 
 		// not wide enough?
 		if(em*w2*a.length < w){
