@@ -15,7 +15,7 @@ body{
 	/* prevent callout to copy image, etc when tap to hold */
 	-webkit-touch-callout: none;	
 	/* prevent webkit from resizing text to fit */
-	/* -webkit-text-size-adjust: none; */
+	-webkit-text-size-adjust: none;
 	/* prevent copy paste, to allow, change 'none' to 'text' */
 	-webkit-user-select: none;
 }
@@ -44,11 +44,12 @@ body{
 h1 {
     font-size:1em;
     font-weight:normal;
-    margin:0px;
+    margin:100px 0px 0px 0px;
     overflow:visible;
     padding:0px;
     text-align:center;
 }
+h1 span{display:inline-block;}
 /*
 @media screen and (min-aspect-ratio: 1/1) and (max-width:400px) {
 	h1{font-size:9em;}
@@ -82,7 +83,7 @@ h1, #d{
 	background-color: #FFCC66;
 }
 #trigger{
-	background: #AA0000;
+	background: #AA3300;
 	color:#FFF;
 	border:3px solid #FFF;
 
@@ -97,7 +98,7 @@ h1, #d{
 	left:50%;
 	margin-left:-3.5em;
 }
-.pull_trigger{
+#trigger.pull_trigger{
 	background: #CCFFCC;
 	-webkit-transform: rotate(360deg);
 	-moz-transition: rotate(360deg);
