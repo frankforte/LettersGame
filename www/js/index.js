@@ -213,10 +213,8 @@ game.getLetter = function(name){
 	z = Math.round( w * scale / a.length );
 //	z = Math.round((emh/em) * w / em);
 	console.log(emh/em)
-	console.log(w)
-	console.log(em)
-
-alert(z)
+	console.log(w);
+	console.log(em);
 	var maxh = 500*devicePixelRatio;
 	if(z > maxh){ z = maxh; };		
 	game[targ].style="font-size: "+z+"px";
