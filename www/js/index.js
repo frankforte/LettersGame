@@ -170,8 +170,9 @@ game.getLetter = function(name){
 alert("starting width:"+w2);
 alert(em);
 
-		var w = f.elById("home");
-		w = w.offsetWidth;
+		// var w = f.elById("home");
+		// w = w.offsetWidth;
+		var w = effectiveDeviceWidth();
 alert(w);
 
 		// not wide enough?
@@ -218,3 +219,11 @@ function init(){
 	game.init();
 }
 window.onload = init;
+
+function effectiveDeviceWidth() {
+    var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+    if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
+        deviceWidth = deviceWidth / window.devicePixelRatio;
+    }
+    return deviceWidth;
+}
