@@ -147,8 +147,8 @@ game.getLetter = function(name){
 	} else {
 		var x,y,z;
 		var j = 0;
-		var w1 = 12;
-		var w2 = 12;
+		var w1 = 100; /* px */
+		var w2 = 100;
 		/*
 			if(game.level == "pro"){
 				w1 = 6;
@@ -167,6 +167,7 @@ game.getLetter = function(name){
 		el.style.display="inline-block";
 		var em = el.offsetWidth;
 		el.style.display="none";
+alert("starting width:"+w2);
 alert(em);
 
 		var w = f.elById("home");
@@ -180,16 +181,19 @@ alert(w);
 			w2 = w2*ratio;
 		}
 		// too wide?
-		if(em*w2*a.length > w){
+		if(em*a.length > w){
 			var ratio = w/(em*w2*a.length);
 			w1 = w1*ratio;
 			w2 = w2*ratio;
+alert("too wide, updated to "+w2);
 		}
 		// too tall?
-		if(w2 > 26){
-			var ratio = 26/w2;
+		var maxh = 300;
+		if(w2 > maxh){
+			var ratio = maxh/w2;
 			w1 = w1*ratio;
-			w2 = 26;
+			w2 = maxh;
+alert("too tall, updated to "+w2);
 		}
 
 		for(var i = 0; i < a.length; i++){
@@ -200,7 +204,7 @@ alert(w);
 			if(j == 0){ x = x.toUpperCase(); }
 			j++;
 
-			game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'em;">'+x+'</span>';;
+			game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+x+'</span>';;
 			},i*100);
 		}
 		//var t = i*100;
