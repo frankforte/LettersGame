@@ -49,6 +49,7 @@ h1 {
     padding:0px;
     text-align:center;
     width:auto;
+	display:inline-block;
 }
 h1 span{display:inline-block;}
 /*
@@ -70,7 +71,7 @@ h1, #d{
 	text-shadow:1px 1px 3px #666;
 }
 #d{
-	display:inline;
+	display:inline-block;
 	-webkit-transition:	all 600ms easing's Bezier curve;
 	transition:		all 600ms easing's Bezier curve; 
 }

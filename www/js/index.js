@@ -114,22 +114,42 @@ game.getNum = function(min,max){
 }
 
 game.getLetter = function(name){
-
-	var devicePixelRatio = window.devicePixelRatio || 1;
-
-	if(typeof(name) != "string"){
-	var name = false
-	}
-
+	
+	/* prevent double submission */
 	if(f.hasClass("trigger","pull_trigger")){
 		return;
 	}
 
-	// spin and deactivate trigger
+	/* spin and deactivate trigger */
 	f.addClass("trigger","pull_trigger");
+
+
+	/* check for supplied string */
+	if(typeof(name) != "string"){
+		var name = false
+	}
+
+	var devicePixelRatio = window.devicePixelRatio || 1;
+	
+	/* width of 1em */
+	var el = f.elById("em");
+	el.style.display="inline-block";
+	var em = el.offsetWidth;
+	el.style.display="none";
+
+
+	/* width of window */
+	var w = f.elById("home");
+	w = w.offsetWidth;
+	if(w == 0){
+		var w = f.elById("gameboard");
+		w = w.offsetWidth;	
+	}
 
 	var targ = (name ? "h1" : "el" );
 	game[targ].innerHTML = '';
+
+	/* Choose string to display */
 	if(!name){
 		var x = game.getNum(0,game[game.level].list.length-1);
 		var a = game[game.level].list[x];
@@ -147,11 +167,12 @@ game.getLetter = function(name){
 		// unspin and activate trigger again
 		// long enough time that kids actually look at letter!
 		setTimeout(function(){f.removeClass("trigger","pull_trigger");},2000);
+	
 	} else {
 		var x,y,z;
 		var j = 0;
-		var w1 = 100; /* px */
-		var w2 = 100;
+		var w1 = 50; /* px */
+		var w2 = 50;
 		/*
 			if(game.level == "pro"){
 				w1 = 6;
@@ -166,16 +187,6 @@ game.getLetter = function(name){
 		*/
 
 		// scale sizes to fit window
-		var el = f.elById("em");
-		el.style.display="inline-block";
-		var em = el.offsetWidth;
-		el.style.display="none";
-
-
-		 var w = f.elById("home");
-		 w = w.offsetWidth;
-		alert(w);
-// var w = effectiveDeviceWidth();
 
 		// not wide enough?
 		var lenw = w2*a.length;
@@ -200,21 +211,29 @@ game.getLetter = function(name){
 
 		for(var i = 0; i < a.length; i++){
 			setTimeout(function(){
-			y = game.getNum(0,4);
-			z = game.getNum(w1,w2);
+
+			y = game.getNum(0,4); /* color */
+			z = game.getNum(w1,w2); /* size */
 			z = z*devicePixelRatio;
 			x = a.charAt(j);
+if(i == 0){
+alert("w1:"+w1+", w2: "+w2+", z:"+z+", ratio "+devicePixelRatio)
+}
 			if(j == 0){ x = x.toUpperCase(); }
 			j++;
 
 			game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+x+'</span>';
 			},i*100);
 		}
+		
 		//var t = i*100;
-		var t = 5000;
-		setTimeout(function(){f.removeClass("trigger", "pull_trigger");/* console.log(f.elById("d").offsetWidth+" word length") */},t);
-console.log(game[targ].offsetWidth+" target width");
-console.log(w+" game width");
+		
+		var t = (name ? 0 : 5000);
+		setTimeout(function(){
+			f.removeClass("trigger", "pull_trigger");
+			alert(targ+" "+game[targ].offsetWidth+" target width");
+			alert(w+" game width");
+		},t);
 
 	}
 }
