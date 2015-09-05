@@ -167,9 +167,11 @@ game.getLetter = function(name){
 		el.style.display="inline-block";
 		var em = el.offsetWidth;
 		el.style.display="none";
+alert(em);
 
 		var w = f.elById("home");
 		w = w.offsetWidth;
+alert(w);
 
 		// not wide enough?
 		if(em*w2*a.length < w){
