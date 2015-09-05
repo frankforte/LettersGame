@@ -157,85 +157,71 @@ game.getLetter = function(name){
 		a = name
 	}
 
-	if(a.length == 1){
-		var y = game.getNum(0,game.colors.length-1);
-		var z = game.getNum(6,15); // fint size in em
-		z = z*devicePixelRatio;
-
-		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+a+'</span>';
-
-		// unspin and activate trigger again
-		// long enough time that kids actually look at letter!
-		setTimeout(function(){f.removeClass("trigger","pull_trigger");},2000);
 	
-	} else {
-		var x,y,z;
-		var j = 0;
-		var w1 = 50; /* px */
-		var w2 = 50;
-		/*
-			if(game.level == "pro"){
-				w1 = 6;
-				w2 = 15;
-			} else if(game.level == "hard") {
-				w1 = 9;
-				w2 = 12;
-			} else  if(game.level == "medium") {
-				w1 = 10;
-				w2 = 11;
-			}
-		*/
-
-		// scale sizes to fit window
-
-		// not wide enough?
-		var lenw = w2*a.length;
-		if(lenw < w){
-			var ratio = w/lenw;
-			w1 = w1*ratio;
-			w2 = w2*ratio;
+	var x,y,z;
+	var j = 0;
+	var w1 = em; /* px */
+	var w2 = em;
+	/*
+		if(game.level == "pro"){
+			w1 = 6;
+			w2 = 15;
+		} else if(game.level == "hard") {
+			w1 = 9;
+			w2 = 12;
+		} else  if(game.level == "medium") {
+			w1 = 10;
+			w2 = 11;
 		}
-		// too wide?
-		if(lenw > w){
-			var ratio = w/lenw;
-			w1 = w1*ratio;
-			w2 = w2*ratio;
-		}
-		// too tall?
-		var maxh = 300*lenw;
-		if(w2 > maxh){
-			var ratio = maxh/w2;
-			w1 = w1*ratio;
-			w2 = maxh;
-		}
+	*/
+alert("em is "+em+" px wide");
 
-		for(var i = 0; i < a.length; i++){
-			setTimeout(function(){
-
-			y = game.getNum(0,4); /* color */
-			z = game.getNum(w1,w2); /* size */
-			z = z*devicePixelRatio;
-			x = a.charAt(j);
-if(i == 0){
-alert("w1:"+w1+", w2: "+w2+", z:"+z+", ratio "+devicePixelRatio)
-}
-			if(j == 0){ x = x.toUpperCase(); }
-			j++;
-
-			game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+x+'</span>';
-			},i*100);
-		}
-		
-		//var t = i*100;
-		
-		var t = (name ? 0 : 5000);
-		setTimeout(function(){
-			f.removeClass("trigger", "pull_trigger");
-			alert(targ+" "+game[targ].offsetWidth+" target width");
-			alert(w+" game width");
-		},t);
-
+	// scale word to fit window
+	var lenw = w2*a.length;
+	
+	// too wide?
+	if(lenw > w){
+		var ratio = w/lenw;
+		w1 = w1*ratio;
+		w2 = w2*ratio;
+alert(lenw+" is too wide")
+alert("new em size: "+w2+" px")
 	}
+	// not wide enough?
+	if(lenw < w){
+		var ratio = w/lenw;
+		w1 = w1*ratio;
+		w2 = w2*ratio;
+	}
+	// too tall?
+	var maxh = 300*lenw;
+	if(w2 > maxh){
+		var ratio = maxh/w2;
+		w1 = w1*ratio;
+		w2 = maxh;
+	}
+
+	for(var i = 0; i < a.length; i++){
+		setTimeout(function(){
+
+		y = game.getNum(0,4); /* color */
+		z = game.getNum(w1,w2); /* size */
+		z = z*devicePixelRatio;
+		x = a.charAt(j); /* letter */
+
+		if(j == 0){ x = x.toUpperCase(); }
+		j++;
+
+		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+x+'</span>';
+		},i*100);
+	}
+	
+	var t = (name ? 0 : i*1000);
+	setTimeout(function(){
+		f.removeClass("trigger", "pull_trigger");
+		alert(targ+" "+game[targ].offsetWidth+" target width");
+		alert(w+" game width");
+	},t);
 }
 
 function init(){
