@@ -206,6 +206,7 @@ game.getLetter = function(name){
 		if(devicePixelRatio > 1){
 			z = z*devicePixelRatio*3;
 		}
+		z = Math.round(z,0);
 		x = a.charAt(j); /* letter */
 
 		if(j == 0){ x = x.toUpperCase(); }
@@ -223,6 +224,10 @@ game.getLetter = function(name){
 
 
 function init(){
+	if(window.MobileAccessibility){
+	window.MobileAccessibility.usePreferredTextZoom(false);
+	}
+
 	document.addEventListener("deviceready", game.init, false);
 	game.init();
 }
