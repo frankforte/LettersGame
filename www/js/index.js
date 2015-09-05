@@ -205,14 +205,13 @@ game.getLetter = function(name){
 		z = game.getNum(w1,w2); /* size */
 		if(devicePixelRatio > 1){
 			z = z*devicePixelRatio*3;
-alert(z);
 		}
 		x = a.charAt(j); /* letter */
 
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
-		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px;">'+x+'</span>';
+		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size:'+z+'px !imporant;">'+x+'</span>';
 		},i*100);
 	}
 	
@@ -222,28 +221,8 @@ alert(z);
 	},t);
 }
 
-function resize() {
 
-	var devicePixelRatio = window.devicePixelRatio || 1;
-if(devicePixelRatio > 1){
-var w = document.documentElement.clientWidth;
-var h = document.documentElement.clientHeight;
-var styleSheet = document.styleSheets[0];
-// ar = aspect  h/w; Replace this with your apps aspect ratio
-var ar = 1.17;
-// x = scaling factor
-var x = 0.1; 
-var rem;
-if (h / w > ar) { // higher than aspect ratio
-    rem = x * w;
-} else { // wider than aspect ratio
-    rem = x * h;
-}
-document.documentElement.style.fontSize = rem + 'px';
-}
-}
 function init(){
-resize()
 	document.addEventListener("deviceready", game.init, false);
 	game.init();
 }
