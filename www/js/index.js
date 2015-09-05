@@ -208,13 +208,20 @@ game.getLetter = function(name){
 		}
 		z = Math.round(z,0);
 */
+	var scale = emh/em;
+	scale*a.length
+	z = Math.round( w * scale / a.length );
+//	z = Math.round((emh/em) * w / em);
+	console.log(emh/em)
+	console.log(w)
+	console.log(em)
 
-	z = Math.round((emh/em) * w / em);
-	
+alert(z)
 	var maxh = 500*devicePixelRatio;
 	if(z > maxh){ z = maxh; };		
-	game[targ].style="font-size: "+z+"px;";
-	
+	game[targ].style="font-size: "+z+"px";
+	game[targ].style.fontSize= z+"px;";
+	console.log(game[targ]);
 	for(var i = 0; i < a.length; i++){
 		setTimeout(function(){
 
