@@ -205,6 +205,7 @@ game.getLetter = function(name){
 		z = game.getNum(w1,w2); /* size */
 		if(devicePixelRatio > 1){
 			z = z*devicePixelRatio*3;
+alert(z);
 		}
 		x = a.charAt(j); /* letter */
 
