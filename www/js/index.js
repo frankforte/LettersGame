@@ -222,7 +222,28 @@ alert(z);
 	},t);
 }
 
+function resize() {
+
+	var devicePixelRatio = window.devicePixelRatio || 1;
+if(devicePixelRatio > 1){
+var w = document.documentElement.clientWidth;
+var h = document.documentElement.clientHeight;
+var styleSheet = document.styleSheets[0];
+// ar = aspect  h/w; Replace this with your apps aspect ratio
+var ar = 1.17;
+// x = scaling factor
+var x = 0.1; 
+var rem;
+if (h / w > ar) { // higher than aspect ratio
+    rem = x * w;
+} else { // wider than aspect ratio
+    rem = x * h;
+}
+document.documentElement.style.fontSize = rem + 'px';
+}
+}
 function init(){
+resize()
 	document.addEventListener("deviceready", game.init, false);
 	game.init();
 }
