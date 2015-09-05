@@ -99,7 +99,7 @@ h1, #d{
 	margin-left:-3.5em;
 }
 #trigger.pull_trigger{
-	background: #CCFFCC;
+	background: #333333;
 	-webkit-transform: rotate(360deg);
 	-moz-transition: rotate(360deg);
 	-o-transition: rotate(360deg);

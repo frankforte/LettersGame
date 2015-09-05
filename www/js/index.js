@@ -212,6 +212,10 @@ game.getLetter = function(name){
 		//var t = i*100;
 		var t = 5000;
 		setTimeout(function(){f.removeClass("trigger", "pull_trigger");/* console.log(f.elById("d").offsetWidth+" word length") */},t);
+
+alert(game[targ].offsetWidth+" target width");
+alert(w+" game width");
+
 	}
 }
 
