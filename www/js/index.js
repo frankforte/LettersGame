@@ -131,10 +131,11 @@ game.getLetter = function(name){
 
 	var devicePixelRatio = window.devicePixelRatio || 1;
 	
-	/* width of 1em */
+	/* height of 1em */
 	var el = f.elById("em");
 	el.style.display="inline-block";
 	var em = el.offsetWidth;
+	var emh = el.offsetHeight;
 	el.style.display="none";
 
 
@@ -176,6 +177,7 @@ game.getLetter = function(name){
 	*/
 
 	// scale word to fit window
+/*
 	var lenw = w2*a.length;
 	
 	// too wide?
@@ -197,13 +199,20 @@ game.getLetter = function(name){
 		w1 = w1*ratio;
 		w2 = maxh;
 	}
+*/
 
 	/* size */
-		z = game.getNum(w1,w2);
+/*		z = game.getNum(w1,w2);
 		if(devicePixelRatio > 1){
 			z = z*devicePixelRatio*3;
 		}
 		z = Math.round(z,0);
+*/
+
+	z = Math.round((emh/em) * w / em);
+	
+	var maxh = 500*devicePixelRatio;
+	if(z > maxh){ z = maxh; };		
 	game[targ].style="font-size: "+z+"px;";
 	
 	for(var i = 0; i < a.length; i++){
@@ -222,7 +231,7 @@ game.getLetter = function(name){
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
-		game[targ].innerHTML += '<span class="'+game.colors[y]+'" style="font-size: '+z+'px;">'+x+'</span>';
+		game[targ].innerHTML += '<span class="'+game.colors[y]+'" >'+x+'</span>';
 		},i*100);
 	}
 	

@@ -73,7 +73,7 @@ h1, #d{
 	text-shadow:1px 1px 3px #666;
 }
 #d{
-	padding-top:5em;
+	padding-top:100px;
 	-webkit-transition:	all 600ms easing's Bezier curve;
 	transition:		all 600ms easing's Bezier curve; 
 }
