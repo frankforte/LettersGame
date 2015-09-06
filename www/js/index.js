@@ -219,6 +219,12 @@ game.getLetter = function(name){
 	if(z > maxh){ z = maxh; };		
 	game[targ].style="font-size: "+z+"px";
 	game[targ].style.fontSize= z+"px;";
+	
+	var n = document.createTextNode(' ');
+	game[targ].appendChild(n);
+	setTimeout(function(){n.parentNode.removeChild(n)}, 1);
+
+
 	game[targ].style.display="none";
 	game[targ].style.display="block";
 	console.log(game[targ]);
