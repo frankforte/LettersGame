@@ -219,6 +219,8 @@ game.getLetter = function(name){
 	if(z > maxh){ z = maxh; };		
 	game[targ].style="font-size: "+z+"px";
 	game[targ].style.fontSize= z+"px;";
+	game[targ].style.display="none";
+	game[targ].style.display="block";
 	console.log(game[targ]);
 	for(var i = 0; i < a.length; i++){
 		setTimeout(function(){
