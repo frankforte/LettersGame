@@ -79,11 +79,11 @@ h1, #d{
   width:100%;
 }
 #d{
-	position: relative;
+/*	position: relative;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
-	-webkit-transition:	all 600ms easing's Bezier curve;
+*/	-webkit-transition:	all 600ms easing's Bezier curve;
 	transition:		all 600ms easing's Bezier curve; 
 }
 #d span{
