@@ -84,6 +84,7 @@ h1, #d{
   width:100%;
   line-height:1;
   font-family: "Fixedsys Excelsior", Inconsolata, Courier, "Robot Mono";
+  z-index:50;
 }
 #d{
 /*	position: relative;
@@ -101,6 +102,7 @@ h1, #d{
 	padding:0.5em 0.9em;
 	font-size:1.2em;
 	font-weight:900;
+	z-index:100;
 }
 #start{
 	background-color: #FFCC66;
