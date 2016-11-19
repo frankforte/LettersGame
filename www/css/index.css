@@ -77,6 +77,7 @@ h1, #d{
   top:3em;
   bottom:4.5em;
   width:100%;
+  line-height:1;
 }
 #d{
 /*	position: relative;

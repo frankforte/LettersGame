@@ -143,8 +143,8 @@ game.getLetter = function(name){
 	var letterbox = f.elById("letters");
 	
 	/* width and height of container */
-	var maxw = letterbox.offsetWidth;	
-	var maxh = letterbox.offsetHeight;
+	var maxw = letterbox.offsetWidth - 10;	
+	var maxh = letterbox.offsetHeight - 16;
 
 	var targ = (name ? "h1" : "el" );
 	game[targ].innerHTML = '';
@@ -188,16 +188,34 @@ game.getLetter = function(name){
 	}
 */
 
-	/* size */
+	/* fit witdth first */
+	var lw = em*a.length; /* width of all letters */
+console.log("maxw: "+ maxw);
+console.log("letters width "+a.length+" * "+em+": "+lw);
 
-	var scale = emh/em;
+//	if(lw > maxw){
+		scale = maxw / lw; 
+		/* shrink to fit */ 
+//	} else {
+//		scale = lw / maxw;
+		/* grow to fit */
+//	}
 
-	z = Math.round( maxw * scale / a.length );
+console.log("scale"+ scale);
+
+	// new width per letter
+	z = em * scale;
+console.log("font width: "+z);
+
+	// convert to font size, which is based on height
+	z = Math.round( z * emh / em, 0 );
+console.log("font height"+ z);
+	// scale to pixel ratio for high res screens?
 	/* z = Math.round( z*devicePixelRatio, 0 ); */
 
+	/* fit to height */
 	if(z > maxh){ z = maxh; };
-	if(z * a.length > maxw){ z = maxw / (a.length); };
-
+console.log("max font height"+ maxh);
 
 	game[targ].style="font-size: "+z+"px";
 	game[targ].style.fontSize= z+"px;";
