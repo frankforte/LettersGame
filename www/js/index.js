@@ -144,7 +144,7 @@ game.getLetter = function(name){
 	
 	/* width and height of container */
 	var maxw = letterbox.offsetWidth;	
-	var maxh = letterbox.offsetHeight - 10;
+	var maxh = letterbox.offsetHeight;
 
 	var targ = (name ? "h1" : "el" );
 	game[targ].innerHTML = '';
@@ -196,7 +196,7 @@ game.getLetter = function(name){
 	/* z = Math.round( z*devicePixelRatio, 0 ); */
 
 	if(z > maxh){ z = maxh; };
-	if(z * a.length > maxw){ z = maxw / (a.length+1); };
+	if(z * a.length > maxw){ z = maxw / (a.length); };
 
 
 	game[targ].style="font-size: "+z+"px";
@@ -222,7 +222,7 @@ game.getLetter = function(name){
 		z = Math.round(z,0);
 		*/
 		x = a.charAt(j); /* letter */
- x = 'w';
+ //x = 'w';
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
