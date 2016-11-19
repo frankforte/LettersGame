@@ -74,7 +74,8 @@ game.init = function(){
 
 
 	/* Initialize Trigger */
-	f.addEvent(f.elById("trigger"),"click",game.getLetter);
+	f.addEvent(f.elById("trigger"),"mousedown",game.getLetter);
+	f.addEvent(f.elById("trigger"),"touchstart",game.getLetter);
 
 }
 
@@ -103,7 +104,7 @@ game.bgcolors = ["#CC3333","#66FF33","#0000FF","FFFF00","#6600CC"];
 game.easy = {"list":game.range("a","z")};
 game.medium = {"list":["add","after","again","any","apple","arm","banana","bark","been","being","bent","best","bone","black","block","blue","bring","brown","bush","came","cane","card","cart","case","chain","chair","chalk","chat","chin","chop","clam","clan","clap","claw","clay","clean","cool","dark","desk","drop","end","family","fang","fast","fell","few","fill","flag","flat","fool","foot","fort","free","fresh","from","glad","golf","gone","grit","hand","hang","happy","harm","help","here","hide","hill","hint","hope","horn","how","ill","into","jaw","joke","just","keep","king","last","line","look","luck","made","many","meal","must","nice","new","next","odd","put","quit","rang","space","said","time","was","yard","yarn"]};
 game.hard = {"list":["baseball","brother","can't","clover","cloud","crayon","club","coat","come","cookie","could","crow","cube","cupcake","deal","dew","didn't","dime","dine","dirt","doll","don't","door","draw","dream","dress","drink","dull","each","east","easy","eight","eleven","every","father","field","fine","first","flew","flower","friend","globe","going","grape","grass","grew","heavy","I'm","it's","know","marker","maybe","milk","morning","mother","myself","much","never","notebook","other","over","paper","pencil","pretty","rabbit","school","seven","sew","shirt","sister","smell","stray","string","summer","start","swing","table","thank","thrift","twelve","twist","under","very","water","were","where","won't","yellow","zebra","zero"]};
-game.pro = {"list":["always","animal","around","because","before","believe","between","bread","bright","busy","cannot","caught","charge","clapped","clean","chicken","children","doctor","does","goes","everyone","everywhere","flight","inside","juice","kitchen","laughter","lunchroom","nobody","once","orange","outside","piece","purple","raise","round","shoes","today","used","weak","week","whale","which","while","wool","yesterday"]};
+game.pro = {"list":["always","animal","around","because","before","believe","between","bread","bright","busy","cannot","caught","charge","clapped","clean","chicken","children","doctor","does","goes","everyone","everywhere","flight","galaxy","inside","juice","kitchen","laughter","lunchroom","nobody","once","orange","outside","piece","purple","raise","round","shoes","today","used","weak","week","whale","which","while","wool","yesterday"]};
 
 game.h1 = document.getElementById("h1");
 game.el = document.getElementById("d");
@@ -137,7 +138,6 @@ game.getLetter = function(name){
 	var em = el.offsetWidth;
 	var emh = el.offsetHeight;
 	el.style.display="none";
-
 
 	/* width of window */
 	var w = f.elById("home");
@@ -215,7 +215,15 @@ game.getLetter = function(name){
 	console.log(emh/em)
 	console.log(w);
 	console.log(em);
+
+	var letterbox = f.elById("letters");
+
+	var maxhw = letterbox.offsetHeight;
+console.log("maxhw: "+maxhw);
 	var maxh = 500*devicePixelRatio;
+	if(maxh > maxhw){
+		maxh = maxhw;
+	}
 	if(z > maxh){ z = maxh; };		
 	game[targ].style="font-size: "+z+"px";
 	game[targ].style.fontSize= z+"px;";

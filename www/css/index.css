@@ -72,8 +72,16 @@ h1, #d{
 	display:inline-block;
 	text-shadow:1px 1px 3px #666;
 }
+#letters{
+  position:absolute;
+  top:3em;
+  bottom:4.5em;
+  width:100%;
+}
 #d{
-	padding-top:100px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 	-webkit-transition:	all 600ms easing's Bezier curve;
 	transition:		all 600ms easing's Bezier curve; 
 }
@@ -99,7 +107,9 @@ h1, #d{
 	-o-transition: background-image 0.25s ease-in-out,  transform 0.25s;
 	-ms-transition: background-image 0.25s ease-in-out, transform 0.25s;
 	transition: background-image 0.25s ease-in-out, transform 0.25s;
-	
+
+	padding-right:2em;
+	padding-left:2em;	
 	position:fixed;
 	bottom:1em;
 	left:50%;
