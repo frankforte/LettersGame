@@ -206,10 +206,13 @@ console.log("scale"+ scale);
 	// new width per letter
 	z = em * scale;
 console.log("font width: "+z);
-
+console.log("em width: "+em);
+console.log("em height: "+emh);
 	// convert to font size, which is based on height
+
 	z = Math.round( z * emh / em, 0 );
-console.log("font height"+ z);
+	console.log("font height"+ z);
+
 	// scale to pixel ratio for high res screens?
 	/* z = Math.round( z*devicePixelRatio, 0 ); */
 
@@ -240,7 +243,7 @@ console.log("max font height"+ maxh);
 		z = Math.round(z,0);
 		*/
 		x = a.charAt(j); /* letter */
- //x = 'w';
+ x = 'w';
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
