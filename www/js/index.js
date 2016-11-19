@@ -243,7 +243,7 @@ console.log("max font height"+ maxh);
 		z = Math.round(z,0);
 		*/
 		x = a.charAt(j); /* letter */
- x = 'w';
+// x = 'w';
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
