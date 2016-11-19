@@ -54,8 +54,8 @@
 
     <gap:plugin name="org.apache.cordova.contacts" />
 -->
-    <gap:plugin name="cordova-plugin-device" />
-    <gap:plugin name="cordova-plugin-inappbrowser" />
+    <gap:plugin name="cordova-plugin-device" source="npm"/>
+    <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
 <!--      <gap:plugin name="org.apache.cordova.device-orientation" />
 
 	<gap:plugin name="org.apache.cordova.device-motion" />
