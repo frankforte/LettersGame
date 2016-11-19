@@ -132,20 +132,24 @@ game.getLetter = function(name){
 
 	var devicePixelRatio = window.devicePixelRatio || 1;
 	
-	/* height of 1em */
+	/* height and width of 1em */
 	var el = f.elById("em");
 	el.style.display="inline-block";
 	var em = el.offsetWidth;
 	var emh = el.offsetHeight;
 	el.style.display="none";
 
-	/* width of window */
-	var w = f.elById("home");
-	w = w.offsetWidth;
-	if(w == 0){
-		var w = f.elById("gameboard");
-		w = w.offsetWidth;	
+	/* Letter Container */
+	var letterbox = f.elById("letters");
+	
+	/* width of container */
+	var maxw = letterbox.offsetWidth - 10;	
+	if(maxw == 0){	
+		var w = f.elById("home");
+		maxw = w.offsetWidth - 10;
 	}
+	/* heigh of container */
+	var maxh = letterbox.offsetHeight - 10;
 
 	var targ = (name ? "h1" : "el" );
 	game[targ].innerHTML = '';
@@ -158,23 +162,11 @@ game.getLetter = function(name){
 		a = name
 	}
 
-	
 	var x,y,z;
 	var j = 0;
 	var w1 = em; /* px */
 	var w2 = em;
-	/*
-		if(game.level == "pro"){
-			w1 = 6;
-			w2 = 15;
-		} else if(game.level == "hard") {
-			w1 = 9;
-			w2 = 12;
-		} else  if(game.level == "medium") {
-			w1 = 10;
-			w2 = 11;
-		}
-	*/
+	
 
 	// scale word to fit window
 /*
@@ -202,29 +194,16 @@ game.getLetter = function(name){
 */
 
 	/* size */
-/*		z = game.getNum(w1,w2);
-		if(devicePixelRatio > 1){
-			z = z*devicePixelRatio*3;
-		}
-		z = Math.round(z,0);
-*/
+
 	var scale = emh/em;
-	scale*a.length
-	z = Math.round( w * scale / a.length );
-//	z = Math.round((emh/em) * w / em);
-	console.log(emh/em)
-	console.log(w);
-	console.log(em);
 
-	var letterbox = f.elById("letters");
+	z = Math.round( maxw * scale / a.length );
+	/* z = Math.round( z*devicePixelRatio, 0 ); // *3; */
 
-	var maxhw = letterbox.offsetHeight;
-console.log("maxhw: "+maxhw);
-	var maxh = 500*devicePixelRatio;
-	if(maxh > maxhw){
-		maxh = maxhw;
-	}
-	if(z > maxh){ z = maxh; };		
+	if(z > maxh){ z = maxh; };
+	if(z * a.length > maxw){ z = maxw / a.length; };
+
+
 	game[targ].style="font-size: "+z+"px";
 	game[targ].style.fontSize= z+"px;";
 	
@@ -248,7 +227,7 @@ console.log("maxhw: "+maxhw);
 		z = Math.round(z,0);
 		*/
 		x = a.charAt(j); /* letter */
-
+// x = 'w';
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
