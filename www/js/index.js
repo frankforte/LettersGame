@@ -142,13 +142,8 @@ game.getLetter = function(name){
 	/* Letter Container */
 	var letterbox = f.elById("letters");
 	
-	/* width of container */
-	var maxw = letterbox.offsetWidth - 10;	
-	if(maxw == 0){	
-		var w = f.elById("home");
-		maxw = w.offsetWidth - 10;
-	}
-	/* heigh of container */
+	/* width and height of container */
+	var maxw = letterbox.offsetWidth;	
 	var maxh = letterbox.offsetHeight - 10;
 
 	var targ = (name ? "h1" : "el" );
@@ -198,10 +193,10 @@ game.getLetter = function(name){
 	var scale = emh/em;
 
 	z = Math.round( maxw * scale / a.length );
-	/* z = Math.round( z*devicePixelRatio, 0 ); // *3; */
+	/* z = Math.round( z*devicePixelRatio, 0 ); */
 
 	if(z > maxh){ z = maxh; };
-	if(z * a.length > maxw){ z = maxw / a.length; };
+	if(z * a.length > maxw){ z = maxw / (a.length+1); };
 
 
 	game[targ].style="font-size: "+z+"px";
@@ -227,7 +222,7 @@ game.getLetter = function(name){
 		z = Math.round(z,0);
 		*/
 		x = a.charAt(j); /* letter */
-// x = 'w';
+ x = 'w';
 		if(j == 0){ x = x.toUpperCase(); }
 		j++;
 
