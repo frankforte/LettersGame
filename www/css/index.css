@@ -75,15 +75,15 @@ h1, #d{
 #em{
   display:none;
   line-height:1;
-  font-family:"Fixedsys Excelsior", Inconsolata, Courier, "Robot Mono";
+  /*font-family:"Fixedsys Excelsior", Inconsolata, Courier, "Robot Mono";*/
 }
 #letters{
   position:absolute;
-  top:3em;
+  top:4em;
   bottom:4.5em;
   width:100%;
   line-height:1;
-  font-family: "Fixedsys Excelsior", Inconsolata, Courier, "Robot Mono";
+  /*font-family: "Fixedsys Excelsior", Inconsolata, Courier, "Robot Mono";*/
   z-index:50;
 }
 #d{
