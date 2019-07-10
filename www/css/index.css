@@ -7,7 +7,9 @@ body, .page {
 	background-image: radial-gradient(50% 90% at 50% 50%, #EEF6FF 0%, #AACCFF 100%); /* Standard syntax (must be last) */
 }
 body{
-	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+/*	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
+	font-family: 'Century Gothic',
+averta,Geneva,Lucida,times;
 	font-size:100%;
 	height:100%;
 	margin:0px;
@@ -74,16 +76,15 @@ h1, #d{
 }
 #em{
   display:none;
-  line-height:1;
-  /*font-family:"Fixedsys Excelsior", Inconsolata, Courier, "Robot Mono";*/
+  line-height:1; 
 }
 #letters{
   position:absolute;
   top:4em;
   bottom:4.5em;
   width:100%;
-  line-height:1;
-  /*font-family: "Fixedsys Excelsior", Inconsolata, Courier, "Robot Mono";*/
+line-height:1;
+  font-family: Graphie,'Century Gothic',averta,Geneva,Lucida;
   z-index:50;
 }
 #d{

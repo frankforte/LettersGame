@@ -211,14 +211,14 @@ console.log("em height: "+emh);
 	// convert to font size, which is based on height
 
 	z = Math.round( z * emh / em, 0 );
-	console.log("font height"+ z);
+
 
 	// scale to pixel ratio for high res screens?
 	/* z = Math.round( z*devicePixelRatio, 0 ); */
 
 	/* fit to height */
 	if(z > maxh){ z = maxh; };
-console.log("max font height"+ maxh);
+
 
 	game[targ].style="font-size: "+z+"px";
 	game[targ].style.fontSize= z+"px;";
@@ -230,7 +230,7 @@ console.log("max font height"+ maxh);
 
 	game[targ].style.display="none";
 	game[targ].style.display="block";
-	console.log(game[targ]);
+
 	for(var i = 0; i < a.length; i++){
 		setTimeout(function(){
 
@@ -251,7 +251,7 @@ console.log("max font height"+ maxh);
 		},i*100);
 	}
 	
-	var t = (name ? 0 : i*1000);
+	var t = (name ? 0 : i*650);
 	setTimeout(function(){
 		f.removeClass("trigger", "pull_trigger");
 	},t);

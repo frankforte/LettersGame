@@ -22,8 +22,6 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="cli-8.1.1" />
-    <plugin name="cordova-plugin-device" spec="1.1.3" />
-    <plugin name="cordova-plugin-inappbrowser" spec="1.5.0" />
     <icon src="www/icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
@@ -53,5 +51,7 @@
         <string>100</string>
     </gap:config-file>
     <access origin="*" />
-    <engine name="android" spec="~8.0.0" />
+    <engine name="android" spec="~9.0.0" />
+    <plugin name="cordova-plugin-device" spec="1.1.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.5.0" />
 </widget>
