@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ca.frankforte.lettersgame" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.frankforte.lettersgame" versionCode="104" version="1.0.4" versionName="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Letters Game</name>
     <description>
         Learn how to sound out letters and words. Great for 3 years and up!
